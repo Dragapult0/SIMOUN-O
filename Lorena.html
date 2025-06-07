@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Quer namorar comigo?</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe0ec, #ffe9f2);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #d6336c;
+      margin-bottom: 50px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+    #no {
+      background-color: #cccccc;
+      color: #333;
+      position: absolute;
+    }
+
+    #response {
+      margin-top: 50px;
+      display: none;
+    }
+
+    #response h2 {
+      color: #c2185b;
+      font-size: 2em;
+    }
+
+    #photos {
+      margin-top: 20px;
+    }
+
+    #photos img {
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      margin: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Quer namorar comigo? 💖</h1>
+  <div class="buttons">
+    <button id="yes">Sim</button>
+    <button id="no">Não</button>
+  </div>
+
+  <div id="response">
+    <h2>Você acabou de me fazer a pessoa mais feliz do mundo! 💘</h2>
+    <div id="photos">
+      <!-- Substitua os links abaixo pelas suas fotos -->
+      <img src="foto1.jpg" alt="Foto juntos 1">
+      <img src="foto2.jpg" alt="Foto juntos 2">
+    </div>
+  </div>
+
+  <script>
+    const btnYes = document.getElementById("yes");
+    const btnNo = document.getElementById("no");
+    const response = document.getElementById("response");
+
+    btnYes.addEventListener("click", () => {
+      response.style.display = "block";
+      btnYes.style.display = "none";
+      btnNo.style.display = "none";
+    });
+
+    btnNo.addEventListener("mouseover", () => {
+      const maxX = window.innerWidth - btnNo.offsetWidth;
+      const maxY = window.innerHeight - btnNo.offsetHeight;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+      btnNo.style.left = `${randomX}px`;
+      btnNo.style.top = `${randomY}px`;
+    });
+  </script>
+</body>
+</html>
