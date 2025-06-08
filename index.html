@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Quer namorar comigo?</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe0ec, #ffe9f2);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 3em;
+      color: #d6336c;
+      margin-bottom: 50px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      position: relative;
+      height: 100px;
+    }
+    button {
+      font-size: 1.5em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    #yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+    #no {
+      background-color: #cccccc;
+      color: #333;
+    }
+    #response {
+      margin-top: 50px;
+      display: none;
+    }
+    #response h2 {
+      color: #c2185b;
+      font-size: 2em;
+      margin: 30px 20px;
+    }
+    .bloco {
+      margin-top: 20px;
+    }
+    .foto {
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      margin: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quer namorar comigo? 💖</h1>
+
+  <div class="buttons">
+    <button id="yes">Sim</button>
+    <button id="no" onmouseover="moveButton(event)">Não</button>
+  </div>
+
+  <div id="response">
+    <h2>Sei que não vai levar a sério e sei que nada que te falo você leva a sério, porém quando disse que te amo, nunca estive falando tão sério na minha vida. Se a sua resposta fosse realmente sim, você me faria o homem mais feliz desse mundo! 💘</h2>
+
+    <div class="bloco">
+      <h2>Você é uma inspiração no trabalho.</h2>
+      <img src="foto1.jpg" alt="Trabalhadora" class="foto">
+    </div>
+
+    <div class="bloco">
+      <h2>Uma pessoa extremamente carinhosa.</h2>
+      <img src="foto2.jpg" alt="Carinhosa" class="foto">
+    </div>
+
+    <div class="bloco">
+      <h2>A pinguça do meu coração 🍻</h2>
+      <img src="foto3.jpg" alt="Pinguça" class="foto">
+    </div>
+
+    <div class="bloco">
+      <h2>Com seus 1,49m... o tamanho do meu sonho. ❤️</h2>
+      <img src="foto4.jpg" alt="Tamanho do sonho" class="foto">
+    </div>
+
+    <div class="bloco">
+      <h2>Uma mãe incrível, um olhar que mata mais que AK47, nem o brilho do sol se compara ao seu brilho. Um cheiro que mexe com o coração de qualquer peão, um cabelo perfeito, um sorriso maravilhoso, uma mãozinha muito fofa, um coração gigantesco... Se eu parar aqui pra te descrever, coração, não vai sair código hoje. Porém, tem um último comentário: tu é boooaaaaaa kkkkkkkkkkkkk 💘</h2>
+    </div>
+
+    <div class="bloco">
+      <h2>TE AMOOO 💘</h2>
+    </div>
+  </div>
+
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    const btnYes = document.getElementById("yes");
+    const btnNo = document.getElementById("no");
+    const response = document.getElementById("response");
+    const musica = document.getElementById("musica");
+
+    btnYes.addEventListener("click", () => {
+      response.style.display = "block";
+      btnYes.style.display = "none";
+      btnNo.style.display = "none";
+      musica.play();
+    });
+
+    function moveButton(event) {
+      const button = event.target;
+      const container = document.querySelector(".buttons");
+      const maxX = container.offsetWidth - button.offsetWidth;
+      const maxY = container.offsetHeight - button.offsetHeight;
+
+      const newX = Math.floor(Math.random() * maxX);
+      const newY = Math.floor(Math.random() * maxY);
+
+      button.style.position = "relative";
+      button.style.left = `${newX - button.offsetLeft}px`;
+      button.style.top = `${newY - button.offsetTop}px`;
+    }
+  </script>
+</body>
+</html>
